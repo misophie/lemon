@@ -1,13 +1,18 @@
 import './App.css'
 import { Homepage } from './pages/Homepage'
+import { Routes, Route } from 'react-router-dom'
+import { Landing } from './pages/Landing'
 
 function App() {
 
   return (
-    <div>
-      <Homepage />
-      hello
-    </div>
+    <Routes>
+       <Route path="/" element={<Landing />}/>
+
+      <Route path="/home" element={<Homepage />} />
+
+    </Routes>
+ 
   )
 }
 
