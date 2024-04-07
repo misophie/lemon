@@ -4,6 +4,7 @@ import { Routes, Route } from 'react-router-dom'
 import { Landing } from './pages/Landing'
 import { GroupForm } from './pages/GroupForm'
 import { ThemeProvider } from '@mui/material/styles';
+import { CreateAccountForm } from './pages/CreateAccountForm'
 import theme from './theme'
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
         <Route path="/" element={<Landing />}/>
         <Route path="/home" element={<Homepage />} />
         <Route path="/group-creation" element={<GroupForm />} />
+        <Route path="/create-account" element={<CreateAccountForm />} />
       </Routes>
     </ThemeProvider>
     
