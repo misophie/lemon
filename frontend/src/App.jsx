@@ -10,6 +10,7 @@ import { CreateAccountForm } from './pages/CreateAccountForm'
 import { ChooseTheme } from './pages/ChooseTheme'
 import { AboutUs } from './pages/AboutUs'
 import theme from './theme'
+import { AllGroupNewsletter } from './pages/AllGroupNewsletter'
 
 function App() {
 
@@ -23,6 +24,7 @@ function App() {
         <Route path="/goal-suggestion" element={<GoalSuggestion />} />
         <Route path="/about-us" element={<AboutUs />} />
         <Route path="/goal-report" element={<GoalReport />} />
+        <Route path="/all-newsletter" element={<AllGroupNewsletter />} />
 
       </Routes>
     </ThemeProvider>

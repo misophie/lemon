@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 import {
   Input,
@@ -139,9 +140,9 @@ export const GoalSuggestion = () => {
   const [sophieDictionary, setSophieDictionary] = useState({"Sophie": "Go on a run to Wreck Beach", "Linda":"Attend a spin class" });
   const [lindaDictionary, setLindaDictionary] = useState({ "Alice": "Try a new yoga class", "Bob": "Visit the local farmers' market" });
 
-
   const classes = useStyles();
   const theme = useTheme();
+  const navigate = useNavigate();
 
   useEffect(() => {
   }, [sophieDictionary, lindaDictionary]);
@@ -154,6 +155,8 @@ export const GoalSuggestion = () => {
 
     // Your web app's Firebase configuration
     // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    navigate("/all-newsletter");
+    
     const firebaseConfig = {
       apiKey: "AIzaSyCq3HI0yJ3oTy1cwF_vUHxZTt8bLgrSfag",
       authDomain: "youcode-fe126.firebaseapp.com",
@@ -214,7 +217,7 @@ export const GoalSuggestion = () => {
       <Container maxWidth="md">
           <Stack spacing={7} direction="column" sx={{ marginBottom: 4 }}>
             <Typography variant="h2">Submit goal suggestions</Typography>
-                <UserSuggestions name={"Sophie"} theme={"Improving Fitness"} suggestions={sophieDictionary} setSuggestions={setSophieDictionary}/>
+                <UserSuggestions name={"Sophie"} theme={"Improving Physical Wellness"} suggestions={sophieDictionary} setSuggestions={setSophieDictionary}/>
                 <UserSuggestions name="Michealla" theme={"Mental Wellness"} suggestions={lindaDictionary} setSuggestions={setLindaDictionary}/>
           </Stack>
     

@@ -11,10 +11,10 @@ import {
   CardContent,
   Checkbox,
 } from "@mui/material";
-import { makeStyles } from "@mui/styles";
-import { useTheme } from "@mui/material/styles";
 import { Navbar } from "../components/Navbar";
 import { YellowButton } from "../components/YellowButton";
+import { makeStyles } from "@mui/styles";
+import { useTheme } from "@mui/material/styles";
 
 const useStyles = makeStyles((theme) => ({
   root: {

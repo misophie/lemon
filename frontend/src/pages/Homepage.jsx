@@ -1,99 +1,132 @@
-// import styled, { ThemeProvider } from "styled-components";
-// import { GroupCard } from "../components/GroupCard";
-import Button from "@mui/material/Button";
-import Stack from "@mui/material/Stack";
-import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-import AppBar from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import './Homepage.css';
+import { useNavigate } from "react-router-dom";
+import {
+  Stack,
+  Button,
+  Typography,
+  Container,
+  Card,
+  CardContent,
+  Grid,
+} from "@mui/material";
+import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
+import "./Homepage.css";
+import { Navbar } from "../components/Navbar";
+import { makeStyles } from "@mui/styles";
+import { useTheme } from "@mui/material/styles";
 
-// const CardsWrapper = styled.div`
-//   display: grid;
-//   grid-template-columns: 1fr 1fr;
-//   padding: 20px;
-//   gap: 20px;
-// `;
-
-// export const Homepage = () => {
-//   return (
-//     <CardsWrapper>
-//       <GroupCard name={"The Yappers"} />
-//       <GroupCard name={"The Non-Yappers"} />
-//     </CardsWrapper>
-//   );
-// };
-
-// const yellowBase = '#FFC436';
-// const yellowMain = alpha(yellowBase, 0,7);
-// const { palette } = createTheme();
-// const { augmentColor } = palette;
-// const createColor = (mainColor) => augmentColor({ color: { main: mainColor} });
-
-const theme = createTheme({
-  palette: {
-    yellowbtn: {
-      main: '#FFC436',
-      light: '#F2C75E',
-      dark: 'FDE9D02',
-      contrastText: '#000000',
-      // contrastText: '#EDEAE4',
-
-    }
+const useStyles = makeStyles((theme) => ({
+  root: {
+    backgroundColor: theme.palette.background.default,
+    minHeight: "100vh",
+    padding: theme.spacing(2),
+    paddingBottom: theme.spacing(20),
   },
-});
+}));
 
-// const theme = createTheme({
-//   palette: {
-//     primary: {
-//       main: '#FFC436',
-//     },
-//   },
-// });
+const CreateNewGroupButton = () => {
+  const navigate = useNavigate();
 
-export const Homepage = () => {
+  const handleClick = () => {
+    navigate("/group-creation");
+  };
   return (
-    // <ThemeProvider theme={theme}>
-    <div className="mainBody">
-      <AppBar position="static" sx={{ bgcolor: "inherit", boxShadow: 'none'}}>
-        <Toolbar>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 , color: "black"}}>
-            lemon
-          </Typography>
-          </Toolbar>
-      </AppBar>
-      <div className="mainText">
-        <ThemeProvider theme={theme}>
-       
-        <Stack direction="row" spacing={5}>
-        <Button
-            
-            variant="contained"
-            size="large" 
-            color="yellowbtn"
-        
-            startIcon={<AddCircleOutlineIcon />}>
-
+    <Card
+      onClick={handleClick}
+      sx={{
+        background: "inherit",
+        borderRadius: "10px",
+        padding: "20px",
+        width: "100%",
+        border: "3px solid black",
+        cursor: "pointer",
+        height: "100%",
+        alignItems: "center",
+        display: "flex",
+      }}
+    >
+      <div style={{ display: "flex", flexDirection: "row" }}>
+        <AddCircleOutlineIcon sx={{ fontSize: 64, color: "black" }} />
+        <CardContent>
+          <Typography variant="h4" gutterBottom>
             Create new group
-        </Button>
-        <Button
-            size="large"
-            color="yellowbtn"
-            variant="contained">
-            
-            The Yappers 2024
-        </Button>
-       
-        </Stack>
-        </ThemeProvider>
-    
+          </Typography>
+        </CardContent>
       </div>
-    </div>
-    
+    </Card>
   );
 };
 
+const NewsletterCard = ({ text }) => {
+  const navigate = useNavigate();
 
+  const handleClick = () => {
+    navigate("/all-newsletter");
+  };
+  return (
+    <Card
+      onClick={handleClick}
+      sx={{
+        background: "#FFC436",
+        borderRadius: "10px",
+        padding: "20px",
+        width: "100%",
+        border: "3px solid black",
+        cursor: "pointer",
+        height: "100%",
+      }}
+    >
+      <div style={{ display: "flex", flexDirection: "row", gap: "10%" }}>
+        <CardContent>
+          <Stack direction="column" spacing={5}>
+            <Typography variant="h4" gutterBottom>
+              {text}
+            </Typography>
+            <Typography variant="h5" color="textSecondary">
+              Created on: date
+            </Typography>
+            <Button
+              sx={{
+                background: "white",
+                borderRadius: "20px",
+                padding: "10px",
+                border: "3px solid black",
+                cursor: "pointer",
+                color: "black",
+                width: "100%",
+              }}
+            >
+              View Details
+            </Button>
+          </Stack>
+        </CardContent>
+      </div>
+    </Card>
+  );
+};
 
+export const Homepage = () => {
+  const classes = useStyles();
+  const theme = useTheme();
 
+  return (
+    <div className={classes.root}>
+      <Navbar signIn={true} />
+      <Container maxWidth="md">
+        <Grid container spacing={10} xs={12}>
+          <Grid item xs>
+            <CreateNewGroupButton />
+          </Grid>
+          <Grid item xs>
+            <NewsletterCard text={"The Yappers"} />
+          </Grid>
+          <Grid item xs>
+            <NewsletterCard text={"The Non-Yappers"} />
+          </Grid>
+          <Grid item xs>
+            <NewsletterCard text={"Locked In"} />
+          </Grid>
+        </Grid>
+      </Container>
+    </div>
+  );
+};

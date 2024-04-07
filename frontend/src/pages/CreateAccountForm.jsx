@@ -14,6 +14,7 @@ import { getAnalytics } from "firebase/analytics";
 import { collection, addDoc, getFirestore } from "firebase/firestore";
 import { Navbar } from "../components/Navbar";
 import { YellowButton } from "../components/YellowButton";
+import { useNavigate } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -29,6 +30,7 @@ export const CreateAccountForm = () => {
   const [email, setEmail] = useState("");
   const [timezone, setTimezone] = useState("");
   const [age, setAge] = useState("");
+  const navigate = useNavigate();
   
 
   const classes = useStyles();
@@ -42,6 +44,8 @@ export const CreateAccountForm = () => {
   };
 
   const submitButtonClick = () => {
+
+    navigate("/home");
     // Firebase import testing
     // Import the functions you need from the SDKs you need
     // TODO: Add SDKs for Firebase products that you want to use
