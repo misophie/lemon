@@ -35,3 +35,14 @@
     transform: scale(0.95); 
     box-shadow: 3px 2px 22px 1px #964B00;
 }
+
+.container {
+    width: 50px;
+    height: 38px;
+}
+
+/* Resize images */
+.container img {
+    width: 100%;
+    height: auto;
+}
