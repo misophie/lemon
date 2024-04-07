@@ -1,10 +1,7 @@
-import Button from "@mui/material/Button";
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import React from "react";
-import AppBar from '@mui/material/AppBar';
 import './Landing.css';
 import { makeStyles } from '@mui/styles';
+import { Navbar } from '../components/Navbar';
+import Typography from '@mui/material/Typography';
 
 export const Landing = () => {
 
@@ -12,7 +9,9 @@ export const Landing = () => {
     root: {
       backgroundColor: theme.palette.background.default,
       minHeight: '100vh', 
-      padding: theme.spacing(2), 
+      padding: theme.spacing(2),
+      paddingBottom: theme.spacing(10)
+ 
     },
   }));
 
@@ -20,27 +19,7 @@ export const Landing = () => {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static" sx={{ bgcolor: "inherit" , boxShadow: 'none'}}>
-        <Toolbar>
-          <Typography variant="h6" component="div" 
-          sx={{ flexGrow: 1 , color: "black", fontFamily: "Noto Sans", fontWeight: 'regular'}}>
-            lemon
-          </Typography>
-          <Button color="inherit" 
-          sx={{textTransform: 'none', 
-              color: "black", 
-              fontFamily: "Oxanium",
-              fontWeight: 'light',
-              fontSize: 17 }}>About Us</Button>
-          <Button variant="outlined"
-          color="inherit" 
-          sx={{textTransform: 'none', 
-              color: "blue", 
-              fontFamily: "Oxanium",
-              fontWeight: 'light',
-              fontSize: 17 }}>Sign Up</Button>
-          </Toolbar>
-      </AppBar>
+      <Navbar signIn={false}/>
       <div className="mainText"> 
         <Typography variant="h6" component="div" 
           sx={{flexGrow: 1 , 
