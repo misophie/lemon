@@ -28,7 +28,9 @@
     font-family: "Oxanium";
     width: 50%;
     height: 100px;
-    transition: 0.3s all; 
+    transition: 0.3s all;
+    cursor: pointer;
+ 
 }
 
 .tryBtn:active { 

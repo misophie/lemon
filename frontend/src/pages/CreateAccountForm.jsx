@@ -3,17 +3,17 @@ import {
   Input,
   FormControl,
   Stack,
-  Button,
   Typography,
   Container,
   Select,
   MenuItem,
 } from "@mui/material";
 import { makeStyles } from "@mui/styles";
-import { useTheme } from "@mui/material/styles";
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { collection, addDoc, getFirestore } from "firebase/firestore";
+import { Navbar } from "../components/Navbar";
+import { YellowButton } from "../components/YellowButton";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -32,7 +32,6 @@ export const CreateAccountForm = () => {
   
 
   const classes = useStyles();
-  const theme = useTheme();
 
   const handleTimezoneChange = (event) => {
     setTimezone(event.target.value);  
@@ -81,10 +80,13 @@ export const CreateAccountForm = () => {
 
   return (
     <div className={classes.root}>
+      <Navbar signIn={true}/>
+      
       <Container maxWidth="md">
-        <Typography variant="h2">Create Account Form</Typography>
+        
         <form>
           <Stack spacing={8} direction="column" sx={{ marginBottom: 4 }}>
+          <Typography variant="h2">Create Account Form</Typography>
             <FormControl>
               <Typography variant="h4">Full Name</Typography>
               <Input
@@ -148,14 +150,10 @@ export const CreateAccountForm = () => {
               </Select>
             </FormControl>
           </Stack>
-          <Button
-            onClick= {submitButtonClick}
-            style={{ backgroundColor: theme.palette.buttonColor.default }}
-            variant="contained"
-            // type="submit"
-          >
-            Sign up
-          </Button>
+
+          <YellowButton 
+            text={"Sign up"}
+            handleClick={submitButtonClick} />
         </form>
       </Container>
     </div>

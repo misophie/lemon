@@ -2,6 +2,7 @@ import './Landing.css';
 import { makeStyles } from '@mui/styles';
 import { Navbar } from '../components/Navbar';
 import Typography from '@mui/material/Typography';
+import { useNavigate } from 'react-router-dom';
 
 export const Landing = () => {
 
@@ -17,6 +18,12 @@ export const Landing = () => {
 
   const classes = useStyles();
 
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate("/create-account");
+  }
+
   return (
     <div className={classes.root}>
       <Navbar signIn={false}/>
@@ -30,7 +37,7 @@ export const Landing = () => {
           Strive to your better self with this goal-based newsletter while connecting with your family and friends
           </Typography>
         <br></br>
-        <button type="button" className="tryBtn">Try Today</button>
+        <button type="button" className="tryBtn" onClick={handleClick}>Try Today</button>
       </div>
     </div>
   );
