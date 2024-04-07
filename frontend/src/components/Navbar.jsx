@@ -4,6 +4,7 @@ import Typography from '@mui/material/Typography';
 import AppBar from '@mui/material/AppBar';
 import { PropTypes } from 'prop-types';
 import { useNavigate } from "react-router-dom";
+import lemonLogo from './lemn.png';
 
 
 export const Navbar = ({signIn}) => {
@@ -58,6 +59,27 @@ export const Navbar = ({signIn}) => {
                 Sign Up
                     
                 </Button>
+        <Toolbar>
+          <div className="container">
+            <img src={lemonLogo} alt="Logo"/>
+          </div>
+          <Typography variant="h6" component="div" 
+          sx={{ flexGrow: 1 , color: "black", fontFamily: "Noto Sans", fontWeight: 'regular'}}>
+            lemon
+          </Typography>
+          <Button color="inherit" 
+          sx={{textTransform: 'none', 
+              color: "black", 
+              fontFamily: "Oxanium",
+              fontWeight: 'light',
+              fontSize: 17 }}><Typography></Typography>About Us</Button>
+          <Button variant="outlined"
+          color="inherit" 
+          sx={{textTransform: 'none', 
+              color: "blue", 
+              fontFamily: "Oxanium",
+              fontWeight: 'light',
+              fontSize: 17 }}>Sign Up</Button>
           </Toolbar>
       </AppBar>
         }
