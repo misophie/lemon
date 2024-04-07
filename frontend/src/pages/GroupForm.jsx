@@ -15,6 +15,7 @@ import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { collection, addDoc, getFirestore } from "firebase/firestore";
 import { YellowButton } from "../components/YellowButton";
+import { useNavigate } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -39,6 +40,8 @@ export const GroupForm = () => {
     console.log(members);
   };
 
+  const navigate = useNavigate();
+
   const registerButtonClick = () => { 
     // Firebase import testing
     // Import the functions you need from the SDKs you need
@@ -47,6 +50,7 @@ export const GroupForm = () => {
 
     // Your web app's Firebase configuration
     // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    navigate("/home");
     const firebaseConfig = {
       apiKey: "AIzaSyCq3HI0yJ3oTy1cwF_vUHxZTt8bLgrSfag",
       authDomain: "youcode-fe126.firebaseapp.com",
