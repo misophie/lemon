@@ -1,5 +1,9 @@
 ## Lemon
 
+Lemon is a web platform where users can create an account and join a group with their friends. Near the start of each month, users will be prompted to set a theme of wellness that they want to focus on for the upcoming month. Group members will then suggest short-term goals FOR each individual's theme. During the month, users must complete a minimum of one of the suggested goals and record a reflection of their experience. Once the month ends, Lemon will email the group a newsletter sharing everyone's progress and reflections!
+
+Lemon's front end is built in Javascript using React and Node.js. The back end is built with Firebase (Firestore).
+
 ### Inspiration
 Everyday provides another opportunity to improve ourselves, our lifestyles and our wellbeing. It may feel that time passes slowly but each month passes by rather fast! This is where Lemon steps in; a monthly goal-tracking newsletter that will keep you committed to wellness and connected with your family and friends. With Lemon, you’ll hold yourself and close ones accountable and acquire new experiences and various skills along the way.
 
