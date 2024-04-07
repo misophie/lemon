@@ -21,7 +21,7 @@ export const AboutUs = () => {
 
   return (
     <div className={classes.root}>
-      <Navbar AboutUs={false}/>
+      <Navbar AboutUs={true}/>
       <Container maxWidth="lg">
         <Typography variant="h6" fontWeight="heavy">
             <Typography fontSize={40}>About Us<br></br></Typography>
