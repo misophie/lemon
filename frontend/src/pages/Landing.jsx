@@ -3,6 +3,7 @@ import { makeStyles } from '@mui/styles';
 import { Navbar } from '../components/Navbar';
 import Typography from '@mui/material/Typography';
 import lemonFriends from './lemon_landing.png';
+import { useNavigate } from 'react-router-dom';
 
 export const Landing = () => {
 
@@ -17,6 +18,12 @@ export const Landing = () => {
   }));
 
   const classes = useStyles();
+
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate("/create-account");
+  }
 
   return (
     <div className={classes.root} 
@@ -36,7 +43,7 @@ export const Landing = () => {
           Strive to your better self with this goal-based newsletter while connecting with your family and friends!
           </Typography>
         <br></br>
-        <button type="button" className="tryBtn">Start Today</button>
+        <button type="button" className="tryBtn" onClick={handleClick}>Start Today</button>
       </div>
     </div>
   );

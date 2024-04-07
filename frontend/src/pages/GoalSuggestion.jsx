@@ -76,10 +76,16 @@ const SuggestionComponent = ({name, suggestion, setSuggestion, suggestions, setS
             </FormControl>
 
               <Button
-                  style={{ backgroundColor: theme.palette.buttonColor.default, color: "black",  borderRadius:"10px", width:"25%"
-                }}
                   variant="contained"
                   onClick={handleClick}
+                  style={{ backgroundColor: theme.palette.buttonColor.default }}
+                  sx={{backgroundColor: theme.palette.buttonColor.default, 
+                    color: "black",  
+                    borderRadius:"10px", 
+                    width:"25%",
+                    
+                    }}
+
                 >
                   Add
               </Button>

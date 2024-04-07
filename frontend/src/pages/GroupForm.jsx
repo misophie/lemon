@@ -8,11 +8,13 @@ import {
   Container,
 } from "@mui/material";
 import Box from "@mui/material/Box";
+import { Navbar } from "../components/Navbar";
 import { makeStyles } from "@mui/styles";
 import { useTheme } from "@mui/material/styles";
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { collection, addDoc, getFirestore } from "firebase/firestore";
+import { YellowButton } from "../components/YellowButton";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -76,11 +78,12 @@ export const GroupForm = () => {
 
   return (
     <div className={classes.root}>
+      <Navbar signIn={true} />
       <Container maxWidth="md">
-        <Typography variant="h2">Create Group</Typography>
         <form>
           <Stack spacing={8} direction="column" sx={{ marginBottom: 4 }}>
-            <FormControl>
+          <Typography variant="h2">Create Group</Typography>
+            <FormControl sx={{ display: "flex", gap: "20px" }}>
               <Typography variant="h4">Group Name</Typography>
               <Input
                 id="fname"
@@ -95,7 +98,7 @@ export const GroupForm = () => {
                 onChange={(e) => setFullName(e.target.value)}
               />
             </FormControl>
-            <FormControl sx={{ display: "flex", gap: "20px" }}>
+            <FormControl sx={{ display: "flex", gap: "20px" }} fullWidth>
               <Typography variant="h4">Invite Members</Typography>
                 <Input
                   placeholder={"Type in Email"}
@@ -113,8 +116,9 @@ export const GroupForm = () => {
 
                 <Button
                   onClick={addButtonClick}
-                  style={{ backgroundColor: theme.palette.buttonColor.default }}
                   variant="contained"
+                  style={{ backgroundColor: theme.palette.buttonColor.default }}
+                  sx={{backgroundColor: theme.palette.buttonColor.default, width: "25%", borderRadius:"10px", color: "black", padding:"1%"}}
                 >
                   Add
                 </Button>
@@ -136,21 +140,15 @@ export const GroupForm = () => {
                         borderRadius: "10px",
                       }}
                     >
-                      <Typography variant="h6">{member}</Typography>
+                      <Typography variant="h6" sx={{color:"#0C7BDC"}}>{member}</Typography>
                     </Box>
                   ))}
                 </div>
               )}
             </FormControl>
           </Stack>
-          <Button
-            onclick = {registerButtonClick}
-            style={{ backgroundColor: theme.palette.buttonColor.default }}
-            variant="contained"
-            type="submit"
-          >
-            Register
-          </Button>
+
+          <YellowButton text={"Send Invitations"} handleClick={registerButtonClick} />
         </form>
       </Container>
     </div>
