@@ -19,6 +19,7 @@ const theme = createTheme({
     // font
     fontFamily: 'Oxanium', 
   },
+
 });
 
 export default theme;
