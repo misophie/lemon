@@ -3,6 +3,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import AppBar from '@mui/material/AppBar';
 import { PropTypes } from 'prop-types';
+import lemonLogo from './lemn.png';
 
 
 export const Navbar = ({signIn}) => {
@@ -21,6 +22,9 @@ export const Navbar = ({signIn}) => {
             :
             <AppBar position="static" sx={{ bgcolor: "inherit" , boxShadow: 'none'}}>
         <Toolbar>
+          <div className="container">
+            <img src={lemonLogo} alt="Logo"/>
+          </div>
           <Typography variant="h6" component="div" 
           sx={{ flexGrow: 1 , color: "black", fontFamily: "Noto Sans", fontWeight: 'regular'}}>
             lemon
