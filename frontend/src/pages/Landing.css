@@ -1,0 +1,17 @@
+
+.mainText {
+    text-align: center;
+    font-family: 'monospace';
+    font-weight: 700;
+    font-size: 500;
+    padding: 15vw;
+    /*border: 3px solid black;*/
+}
+
+.mainBody {
+    background-color: #F7F2E8;
+}
+
+.signUpBtn {
+    color: #FFC436;
+}
