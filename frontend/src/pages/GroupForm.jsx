@@ -62,8 +62,8 @@ export const GroupForm = () => {
     try {
       const docRef = addDoc(collection(db, "groups"), {
         emails: members,
-        // groupId: Math.random()*Math.random()*100,
-        groupId: 5,
+        groupId: Math.random()*Math.random()*100,
+        // groupId: 5,
         name: fullName,
       });
       console.log("Document written with ID: ", docRef.id);
