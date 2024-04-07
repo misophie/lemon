@@ -15,6 +15,11 @@ import { makeStyles } from "@mui/styles";
 import { useTheme } from "@mui/material/styles";
 import { Navbar } from "../components/Navbar";
 import { YellowButton } from "../components/YellowButton";
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+import { addDoc, getFirestore, collection } from "firebase/firestore";
+
+var clickedInfo = {};
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -80,6 +85,15 @@ const CheckedGoal = ({ person, suggestion }) => {
   const [input, setInput] = useState("");
 
   const handleClick = () => {
+    if (clicked) {
+        // clickedInfo.push({key : person, value : [suggestion, input]});
+        // clickedInfo[person].push([suggestion, input])
+        // console.log(clickedInfo)
+    }
+    else {
+        delete clickedInfo[person]
+        // console.log(clickedInfo)
+    }
     setClicked(!clicked);
   };
   return (
@@ -88,12 +102,21 @@ const CheckedGoal = ({ person, suggestion }) => {
         <Checkbox onChange={handleClick} />
         <GoalCard person={person} suggestion={suggestion} />
       </div>
-      {clicked ? <CheckedGoalReport input={input} setInput={setInput} /> : null}
+      {clicked ? <CheckedGoalReport input={input} setInput={setInput} person ={person} suggestion = {suggestion} /> : null}
     </Stack>
   );
 };
 
-const CheckedGoalReport = ({ input, setInput }) => {
+const CheckedGoalReport = ({ input, setInput, person, suggestion }) => {
+    const changedText = (e) => {
+        setInput(e.target.value)
+    }
+    const finishedChangedText = () => {
+        console.log('done changing')
+        clickedInfo[person] = clickedInfo[person] ? clickedInfo[person] : []
+        clickedInfo[person].push([suggestion, input])
+        console.log(clickedInfo)
+    }
   return (
     <>
       <Typography variant="h4">Tell us about it!</Typography>
@@ -111,7 +134,8 @@ const CheckedGoalReport = ({ input, setInput }) => {
         disableUnderline={true}
         placeholder="Type in a suggestion!"
         value={input}
-        onChange={(e) => setInput(e.target.value)}
+        onChange={(e) => changedText(e)}
+        onBlur={finishedChangedText()}
       />
       <YellowButton text={"Upload Media"} />
     </>
@@ -163,11 +187,60 @@ export const GoalReport = () => {
     Alice: "Try a new yoga class",
     Bob: "Visit the local farmers' market",
   });
+  
+  const checkedGoals = useState()
 
   const classes = useStyles();
   const theme = useTheme();
 
   useEffect(() => {}, [jenniferDictionary]);
+
+  const submitButtonClick = () => {
+        // Firebase import testing
+        // Import the functions you need from the SDKs you need
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+            apiKey: "AIzaSyCq3HI0yJ3oTy1cwF_vUHxZTt8bLgrSfag",
+            authDomain: "youcode-fe126.firebaseapp.com",
+            databaseURL: "https://youcode-fe126-default-rtdb.firebaseio.com",
+            projectId: "youcode-fe126",
+            storageBucket: "youcode-fe126.appspot.com",
+            messagingSenderId: "919136939004",
+            appId: "1:919136939004:web:530edfc5d642560b52e079",
+            measurementId: "G-QJQ56DV6EW"
+        };
+    
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const db = getFirestore();
+
+        for (const [key, value] of Object.entries(clickedInfo)) {
+            console.log(clickedInfo)
+            console.log(key, value)
+            try {
+              // in actual usage, you can match the group id by querying for group
+              // then retrieving the id and adding it to the path
+              // then query the correct theme to find the id
+              // to create this path dynamically
+              const docRef = addDoc(collection(db, "groups/Ty6EMX9LKVOr7gXwcMz1/themes/Fq2IcifN1DtXym1yccEm/goals"), {
+                completed: true,
+                goal: value[0],
+                suggester: key,
+                // we didn't implement the image insertion, so this is left null
+                photo: null,
+                text: value[1]
+              });
+              console.log("Document written with ID: ", docRef.id);
+            } catch (e) {
+              console.error("Error adding document: ", e);
+            }
+          }
+  }
 
   return (
     <div className={classes.root}>
@@ -183,7 +256,7 @@ export const GoalReport = () => {
           />
         </Stack>
 
-        <YellowButton text={"Submit"} />
+        <YellowButton handleClick={submitButtonClick} text={"Submit"} />
       </Container>
     </div>
   );
