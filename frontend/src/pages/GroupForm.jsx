@@ -142,6 +142,7 @@ export const GroupForm = () => {
             </FormControl>
           </Stack>
           <Button
+            onclick = {registerButtonClick}
             style={{ backgroundColor: theme.palette.buttonColor.default }}
             variant="contained"
             type="submit"
