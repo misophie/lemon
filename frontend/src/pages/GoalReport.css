@@ -1,0 +1,18 @@
+.mainText {
+    text-align: center;
+    font-family: 'monospace';
+    font-weight: 700;
+    font-size: 500;
+    padding: 15vw;
+}
+
+.mainBody{
+    background-color: #F7F2E8;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    z-index:1000;
+
+    /* align-items: flex-start; */
+}
