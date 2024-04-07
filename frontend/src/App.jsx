@@ -25,6 +25,7 @@ function App() {
         <Route path="/about-us" element={<AboutUs />} />
         <Route path="/goal-report" element={<GoalReport />} />
         <Route path="/all-newsletter" element={<AllGroupNewsletter />} />
+        <Route path="/choose-theme" element={<ChooseTheme />} />
 
       </Routes>
     </ThemeProvider>
