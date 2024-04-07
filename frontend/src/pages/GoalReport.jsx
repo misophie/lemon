@@ -11,8 +11,6 @@ import {
   CardContent,
   Checkbox,
 } from "@mui/material";
-import { makeStyles } from "@mui/styles";
-import { useTheme } from "@mui/material/styles";
 import { Navbar } from "../components/Navbar";
 import { YellowButton } from "../components/YellowButton";
 import { initializeApp } from "firebase/app";
@@ -20,6 +18,8 @@ import { getAnalytics } from "firebase/analytics";
 import { addDoc, getFirestore, collection } from "firebase/firestore";
 
 var clickedInfo = {};
+import { makeStyles } from "@mui/styles";
+import { useTheme } from "@mui/material/styles";
 
 const useStyles = makeStyles((theme) => ({
   root: {
