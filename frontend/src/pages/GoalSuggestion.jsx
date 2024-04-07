@@ -17,7 +17,7 @@ import { Navbar } from "../components/Navbar";
 import { YellowButton } from "../components/YellowButton";
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-import { collectionGroup, addDoc, getFirestore, collection } from "firebase/firestore";
+import { addDoc, getFirestore, collection } from "firebase/firestore";
 
 const useStyles = makeStyles((theme) => ({
   root: {
