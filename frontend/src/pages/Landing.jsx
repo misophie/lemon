@@ -1,16 +1,27 @@
 import Button from "@mui/material/Button";
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import React from "react";
 import './Landing.css';
-import { createTheme } from '@mui/material/styles';
+import { makeStyles } from '@mui/styles';
+
 
 // imports for test nav bar
 import AppBar from '@mui/material/AppBar';
 
+const useStyles = makeStyles((theme) => ({
+    root: {
+      backgroundColor: theme.palette.background.default,
+      minHeight: '100vh', 
+      padding: theme.spacing(2), 
+    },
+}));
+
 export const Landing = () => {
+
+  const classes = useStyles();
+
   return (
-    <div className="mainBody">
+    <div className={classes.root}>
       <AppBar position="static" sx={{ bgcolor: "inherit" , boxShadow: 'none'}}>
         <Toolbar>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 , color: "black"}}>
