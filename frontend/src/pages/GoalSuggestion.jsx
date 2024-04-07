@@ -13,6 +13,7 @@ import {
 import { makeStyles } from "@mui/styles";
 import { useTheme } from "@mui/material/styles";
 import { Navbar } from "../components/Navbar";
+import { YellowButton } from "../components/YellowButton";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -148,18 +149,14 @@ export const GoalSuggestion = () => {
     <Navbar signIn={true}/>
       <Container maxWidth="md">
           <Stack spacing={7} direction="column" sx={{ marginBottom: 4 }}>
-          <Typography variant="h2">Submit goal suggestions</Typography>
-            <UserSuggestions name={"Sophie"} theme={"Improving Fitness"} suggestions={sophieDictionary} setSuggestions={setSophieDictionary}/>
-            <UserSuggestions name="Michealla" theme={"Mental Wellness"} suggestions={lindaDictionary} setSuggestions={setLindaDictionary}/>
+            <Typography variant="h2">Submit goal suggestions</Typography>
+                <UserSuggestions name={"Sophie"} theme={"Improving Fitness"} suggestions={sophieDictionary} setSuggestions={setSophieDictionary}/>
+                <UserSuggestions name="Michealla" theme={"Mental Wellness"} suggestions={lindaDictionary} setSuggestions={setLindaDictionary}/>
           </Stack>
-
-          <Button
-            style={{ backgroundColor: theme.palette.buttonColor.default, color: "black" }}
-            variant="contained"
-            // type="submit"
-          >
-            Submit
-          </Button>
+    
+          <YellowButton 
+            text={"Submit"}
+          />
       </Container>
     </div>
   );
