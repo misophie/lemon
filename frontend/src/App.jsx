@@ -6,6 +6,7 @@ import { GroupForm } from './pages/GroupForm'
 import { GoalSuggestion } from './pages/GoalSuggestion'
 import { ThemeProvider } from '@mui/material/styles';
 import { CreateAccountForm } from './pages/CreateAccountForm'
+import { ChooseTheme } from './pages/ChooseTheme'
 import { AboutUs } from './pages/AboutUs'
 import theme from './theme'
 
