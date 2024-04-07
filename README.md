@@ -1,4 +1,5 @@
 ## Lemon
+![image](https://github.com/misophie/lemon/assets/59629772/e599ddc3-c25a-4f01-91a5-482c72f34be6)
 
 Lemon is a web platform where users can create an account and join a group with their friends. Near the start of each month, users will be prompted to set a theme of wellness that they want to focus on for the upcoming month. Group members will then suggest short-term goals FOR each individual's theme. During the month, users must complete a minimum of one of the suggested goals and record a reflection of their experience. Once the month ends, Lemon will email the group a newsletter sharing everyone's progress and reflections!
 
