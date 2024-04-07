@@ -10,9 +10,6 @@ import {
 import Box from "@mui/material/Box";
 import { makeStyles } from "@mui/styles";
 import { useTheme } from "@mui/material/styles";
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-import { collection, addDoc, getFirestore } from "firebase/firestore";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -33,43 +30,6 @@ export const GroupForm = () => {
   const addButtonClick = () => {
     setMembers([...members, member]);
     console.log(members);
-  };
-
-  const registerButtonClick = () => { 
-    // Firebase import testing
-    // Import the functions you need from the SDKs you need
-    // TODO: Add SDKs for Firebase products that you want to use
-    // https://firebase.google.com/docs/web/setup#available-libraries
-
-    // Your web app's Firebase configuration
-    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-    const firebaseConfig = {
-      apiKey: "AIzaSyCq3HI0yJ3oTy1cwF_vUHxZTt8bLgrSfag",
-      authDomain: "youcode-fe126.firebaseapp.com",
-      databaseURL: "https://youcode-fe126-default-rtdb.firebaseio.com",
-      projectId: "youcode-fe126",
-      storageBucket: "youcode-fe126.appspot.com",
-      messagingSenderId: "919136939004",
-      appId: "1:919136939004:web:530edfc5d642560b52e079",
-      measurementId: "G-QJQ56DV6EW"
-    };
-
-    // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
-    const analytics = getAnalytics(app);
-    const db = getFirestore();
-
-    try {
-      const docRef = addDoc(collection(db, "groups"), {
-        emails: members,
-        // groupId: Math.random()*Math.random()*100,
-        groupId: 5,
-        name: fullName,
-      });
-      console.log("Document written with ID: ", docRef.id);
-    } catch (e) {
-      console.error("Error adding document: ", e);
-    }
   };
 
   return (
@@ -148,31 +108,8 @@ export const GroupForm = () => {
           >
             Register
           </Button>
-          {members.length > 0 && (
-            <div
-              style={{ display: "flex", gap: "20px", flexDirection: "column" }}
-            >
-              {members.map((member, index) => (
-                <Box
-                  key={index}
-                  component="section"
-                  sx={{ p: 2, border: "5px solid #0C7BDC" }}
-                >
-                  <Typography variant="h6">{member}</Typography>
-                </Box>
-              ))}
-            </div>
-          )}
-        </Stack>
-        <Button
-          onClick={registerButtonClick}
-          style={{ backgroundColor: theme.palette.buttonColor.default }}
-          variant="contained"
-          // type="submit"
-        >
-          Register
-        </Button>
-      </form>
+        </form>
+      </Container>
     </div>
   );
 };
