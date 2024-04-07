@@ -1,4 +1,4 @@
-Lemon
+### Lemon
 
 ## Inspiration
 Everyday provides another opportunity to improve ourselves, our lifestyles and our wellbeing. It may feel that time passes slowly but each month passes by rather fast! This is where Lemon steps in; a monthly goal-tracking newsletter that will keep you committed to wellness and connected with your family and friends. With Lemon, you’ll hold yourself and close ones accountable and acquire new experiences and various skills along the way.
