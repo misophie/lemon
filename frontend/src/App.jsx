@@ -7,6 +7,7 @@ import { GoalSuggestion } from './pages/GoalSuggestion'
 import { ThemeProvider } from '@mui/material/styles';
 import { CreateAccountForm } from './pages/CreateAccountForm'
 import { ChooseTheme } from './pages/ChooseTheme'
+import { AboutUs } from './pages/AboutUs'
 import theme from './theme'
 
 function App() {
@@ -19,7 +20,7 @@ function App() {
         <Route path="/group-creation" element={<GroupForm />} />
         <Route path="/create-account" element={<CreateAccountForm />} />
         <Route path="/goal-suggestion" element={<GoalSuggestion />} />
-        <Route path="/choose-theme" element={<ChooseTheme />} />
+        <Route path="/about-us" element={<AboutUs />} />
       </Routes>
     </ThemeProvider>
     
