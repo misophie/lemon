@@ -14,7 +14,9 @@ import { makeStyles } from "@mui/styles";
 import { useTheme } from "@mui/material/styles";
 import { Navbar } from "../components/Navbar";
 import { YellowButton } from "../components/YellowButton";
-
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+import { collectionGroup, addDoc, getFirestore, collection } from "firebase/firestore";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -144,6 +146,68 @@ export const GoalSuggestion = () => {
   useEffect(() => {
   }, [sophieDictionary, lindaDictionary]);
 
+  const submitButtonClick = () => {
+    // Firebase import testing
+    // Import the functions you need from the SDKs you need
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyCq3HI0yJ3oTy1cwF_vUHxZTt8bLgrSfag",
+      authDomain: "youcode-fe126.firebaseapp.com",
+      databaseURL: "https://youcode-fe126-default-rtdb.firebaseio.com",
+      projectId: "youcode-fe126",
+      storageBucket: "youcode-fe126.appspot.com",
+      messagingSenderId: "919136939004",
+      appId: "1:919136939004:web:530edfc5d642560b52e079",
+      measurementId: "G-QJQ56DV6EW"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+    const db = getFirestore();
+
+    console.log("initialized")
+
+    for (const [key, value] of Object.entries(sophieDictionary)) {
+      try {
+        // in actual usage, you can match the group id by querying for group
+        // then retrieving the id and adding it to the path
+        // then query the correct theme to find the id
+        // to create this path dynamically
+        const docRef = addDoc(collection(db, "groups/RZZZcJxHKNf5a5HzxUIJ/themes/wHEgIbV9ZNtgIbps9G5T/goals"), {
+          completed: false,
+          goal: value,
+          suggester: key,
+          photo: null,
+          text: ""
+        });
+        console.log("Document written with ID: ", docRef.id);
+      } catch (e) {
+        console.error("Error adding document: ", e);
+      }
+    }
+
+    for (const [key, value] of Object.entries(lindaDictionary)) {
+      try {
+        const docRef = addDoc(collection(db, "groups/RZZZcJxHKNf5a5HzxUIJ/themes/wHEgIbV9ZNtgIbps9G5T/goals"), {
+          completed: false,
+          goal: value,
+          suggester: key,
+          photo: null,
+          text: ""
+        });
+        console.log("Document written with ID: ", docRef.id);
+      } catch (e) {
+        console.error("Error adding document: ", e);
+      }
+    }
+
+  };
+
   return (
     <div className={classes.root}>
     <Navbar signIn={true}/>
@@ -155,6 +219,7 @@ export const GoalSuggestion = () => {
           </Stack>
     
           <YellowButton 
+            handleClick={submitButtonClick}
             text={"Submit"}
           />
       </Container>
