@@ -12,7 +12,7 @@ We used Figma to plan out the UI/UX design and application flow. For frontend, w
 ## Challenges we ran into
 One of the challenges during the process was our unfamiliarity with React and Material UI. It was a steep learning curve considering the hackathon time limit, but through much experimentation and reading the docs, we were able to use it to fulfill our purposes. 
 
-Another smaller challenge during the process was debating between using Firebase or MongoDB for our backend. We decided to stick with Firebase because it better served our application purpose.
+Another smaller challenge during the process was debating between using Firebase or MongoDB for our backend. We decided to stick with Firebase because it better served our application purpose. We have never used Firebase before, and it was also quite a learning process!
 
 ## Accomplishments that we're proud of
 We are proud of realizing our user stories for our project, a huge accomplishment given the time constraints of the hackathon. We are proud that we were able to work together to create a product despite meeting one another for the first time the morning of the hackathon. As such, we were able to lean on our strengths while working on the project. 
