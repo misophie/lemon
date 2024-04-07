@@ -4,8 +4,17 @@ import Typography from '@mui/material/Typography';
 import React from "react";
 import AppBar from '@mui/material/AppBar';
 import './Landing.css';
+import { makeStyles } from '@mui/styles';
 
 export const Landing = () => {
+
+  const useStyles = makeStyles((theme) => ({
+    root: {
+      backgroundColor: theme.palette.background.default,
+      minHeight: '100vh', 
+      padding: theme.spacing(2), 
+    },
+  }));
 
   const classes = useStyles();
 
