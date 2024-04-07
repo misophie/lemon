@@ -30,12 +30,12 @@ export const Navbar = ({signIn}) => {
                     lemon
                 </Typography>
                     </div>
-                
                 </Toolbar>
             </AppBar>
             :
             <AppBar position="static" sx={{ bgcolor: "inherit" , boxShadow: 'none'}}>
             <Toolbar>
+              <img src={lemonLogo} alt="Logo" width="50" height="38"/>
                 <Typography variant="h6" component="div" 
                 sx={{ flexGrow: 1 , color: "black", fontFamily: "Noto Sans", fontWeight: 'regular'}}>
                     lemon
@@ -57,30 +57,8 @@ export const Navbar = ({signIn}) => {
                     fontWeight: 'light',
                     fontSize: 17 }}>
                 Sign Up
-                    
                 </Button>
-        <Toolbar>
-          <div className="container">
-            <img src={lemonLogo} alt="Logo"/>
-          </div>
-          <Typography variant="h6" component="div" 
-          sx={{ flexGrow: 1 , color: "black", fontFamily: "Noto Sans", fontWeight: 'regular'}}>
-            lemon
-          </Typography>
-          <Button color="inherit" 
-          sx={{textTransform: 'none', 
-              color: "black", 
-              fontFamily: "Oxanium",
-              fontWeight: 'light',
-              fontSize: 17 }}><Typography></Typography>About Us</Button>
-          <Button variant="outlined"
-          color="inherit" 
-          sx={{textTransform: 'none', 
-              color: "blue", 
-              fontFamily: "Oxanium",
-              fontWeight: 'light',
-              fontSize: 17 }}>Sign Up</Button>
-          </Toolbar>
+                </Toolbar>
       </AppBar>
         }
         </div>
