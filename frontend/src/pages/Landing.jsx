@@ -3,12 +3,14 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import React from "react";
 import AppBar from '@mui/material/AppBar';
-
 import './Landing.css';
 
 export const Landing = () => {
+
+  const classes = useStyles();
+
   return (
-    <div className="mainBody">
+    <div className={classes.root}>
       <AppBar position="static" sx={{ bgcolor: "inherit" , boxShadow: 'none'}}>
         <Toolbar>
           <Typography variant="h6" component="div" 

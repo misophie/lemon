@@ -1,0 +1,81 @@
+{
+    "users": [
+        {
+            "name": "Sophie",
+            "email" : "sophie@mail.com",
+            "age" : 10,
+            "timezone": "GMT-08:00",
+            "groups" : [1] 
+        },
+        {
+            "name": "Amy",
+            "email" : "amy@mail.com",
+            "age" : 35,
+            "timezone": "GMT-08:00",
+            "groups" : [] 
+        },
+        {
+            "name": "Grace",
+            "email" : "grace@mail.com",
+            "age" : 37,
+            "timezone": "GMT-08:00",
+            "groups" : [1] 
+        },
+        {
+            "name": "Michaella",
+            "email" : "michaella@mail.com",
+            "age" : 26,
+            "timezone": "GMT-08:00",
+            "groups" : [1] 
+        }
+    ],
+    "groups": [
+        {
+            "groupId": 1,
+            "name": "The Yappers",
+            "emails": ["sophie@mail.com", "grace@mail.com", "mcihaella@mail.com"],
+            "themes": [
+                {
+                    "email": "sophie@mail.com",
+                    "theme": "get good",
+                    "goals": [
+                        {
+                            "suggester-email": "grace@mail.com",
+                            "goal": "skill issue",
+                            "completed": false,
+                            "text": null,
+                            "photo": null
+                        },
+                        {
+                            "suggester-email": "michaella@mail.com",
+                            "goal": "practice more!",
+                            "completed": false,
+                            "text": null,
+                            "photo": null
+                        }
+                    ]
+                },
+                {
+                    "email": "grace@mail.com",
+                    "theme": "be better than sophie",
+                    "goals": [
+                        {
+                            "suggester-email" : "sophie@mail.com",
+                            "goal": "literally impossible",
+                            "completed": false,
+                            "text": null,
+                            "photo": null
+                        },
+                        {
+                            "suggester-email": "michaella@mail.com",
+                            "goal": "already are",
+                            "completed": false,
+                            "text": null,
+                            "photo": null
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
