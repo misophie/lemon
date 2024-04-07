@@ -1,17 +1,37 @@
 
 .mainText {
     text-align: center;
-    font-family: 'monospace';
     font-weight: 700;
-    font-size: 500;
     padding: 15vw;
-    /*border: 3px solid black;*/
 }
 
 .mainBody {
     background-color: #F7F2E8;
+    position:fixed;
+    width:100%;
+    height:100%;
+    top:0px;
+    left:0px;
+    z-index:1000;
 }
 
-.signUpBtn {
-    color: #FFC436;
+.tryBtn {
+    background-color: #FFC436;
+    border: none;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 25px;
+    border-radius: 12px;
+    font-family: "Oxanium";
+    width: 50%;
+    height: 100px;
+    transition: 0.3s all; 
+}
+
+.tryBtn:active { 
+    transform: scale(0.95); 
+    box-shadow: 3px 2px 22px 1px #964B00;
 }
