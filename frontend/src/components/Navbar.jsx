@@ -18,29 +18,34 @@ export const Navbar = ({signIn}) => {
         navigate("/create-account");
     }
 
+    const handleAboutUsClick = () => {
+      navigate("/about-us");
+  }
+
     return(
         <div>
-            {
+          {
             signIn ? 
             <AppBar position="static" sx={{ bgcolor: "inherit" , boxShadow: 'none'}}>
                 <Toolbar>
-                    <div onClick={handleHomeClick} style={{cursor:"pointer"}}>
-                    <Typography variant="h6" component="div" 
-                sx={{ flexGrow: 1 , color: "black", fontFamily: "Noto Sans", fontWeight: 'regular'}}>
+                    <img src={lemonLogo} alt="Logo" width="50" height="38" onClick={handleHomeClick}/>
+                    <Typography variant="h6" component="div" onClick={handleHomeClick}
+                      sx={{ flexGrow: 1 , color: "black", fontFamily: "Noto Sans", fontWeight: 'regular'}}>
                     lemon
-                </Typography>
-                    </div>
+                  </Typography>
                 </Toolbar>
             </AppBar>
             :
             <AppBar position="static" sx={{ bgcolor: "inherit" , boxShadow: 'none'}}>
             <Toolbar>
-              <img src={lemonLogo} alt="Logo" width="50" height="38"/>
-                <Typography variant="h6" component="div" 
-                sx={{ flexGrow: 1 , color: "black", fontFamily: "Noto Sans", fontWeight: 'regular'}}>
+            <img src={lemonLogo} alt="Logo" width="50" height="38" onClick={handleHomeClick}/>
+                    <Typography variant="h6" component="div" onClick={handleHomeClick}
+                      sx={{ flexGrow: 1 , color: "black", fontFamily: "Noto Sans", fontWeight: 'regular'}}>
                     lemon
-                </Typography>
-                <Button color="inherit" 
+                  </Typography>
+                <Button 
+                color="inherit" 
+                onClick={handleAboutUsClick}
                 sx={{textTransform: 'none', 
                     color: "black", 
                     fontFamily: "Oxanium",
@@ -61,6 +66,7 @@ export const Navbar = ({signIn}) => {
                 </Toolbar>
       </AppBar>
         }
+
         </div>
         
     )

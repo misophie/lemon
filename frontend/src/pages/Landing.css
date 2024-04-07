@@ -17,7 +17,6 @@
 
 .tryBtn {
     background-color: #FFC436;
-    border: none;
     color: black;
     padding: 15px 32px;
     text-align: center;
@@ -30,6 +29,7 @@
     height: 100px;
     transition: 0.3s all;
     cursor: pointer;
+    border-color: #9c5d00;
  
 }
 
